@@ -1,0 +1,67 @@
+<html>
+  <head>
+    <title>Portal Shader Demo</title>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component@1.2.0/dist/aframe-environment-component.min.js"></script>
+    <script src="https://unpkg.com/dat.gui"></script>
+    <script src="./aframe-liquid-portal-shader.js"></script>
+
+    <script type="text/javascript">
+      window.onload = function () {
+        let gui = new dat.GUI();
+
+        let params = {
+          numRipples: 5,
+          maxRippleOffset: 0.01,
+          rippleSpeed: 0.1,
+        };
+
+        function setParams() {
+          let portal = document.getElementById("portal");
+          portal.setAttribute("material", params);
+        }
+
+        let ranges = {
+          numRipples: { min: 0, max: 20, step: 0.1 },
+          maxRippleOffset: { min: 0, max: 0.05, step: 0.001 },
+          rippleSpeed: { min: 0, max: 1, step: 0.001 },
+        };
+
+        for (let name in ranges) {
+          gui
+            .add(params, name)
+            .min(ranges[name].min)
+            .max(ranges[name].max)
+            .step(ranges[name].step)
+            .onChange(setParams);
+        }
+
+        let componentStatus = { mouse: false };
+        gui.add(componentStatus, "mouse").onChange(() => {
+          let portal = document.getElementById("portal");
+          if (componentStatus.mouse) {
+            portal.setAttribute("liquid-portal-mouse", {});
+          } else {
+            portal.removeAttribute("liquid-portal-mouse");
+            portal.setAttribute("material", "rippleCenter", { x: 0.5, y: 0.5 });
+          }
+        });
+      };
+    </script>
+  </head>
+  <body style="background-color: black">
+    <a-scene>
+      <a-assets timeout="20000">
+        <img id="demo" src="demo.png" crossorigin="anonymous" />
+      </a-assets>
+      <a-image
+        id="portal"
+        src="#demo"
+        position="-0.5 1.6 -2"
+        material="shader: liquid-portal"
+      ></a-image>
+      <a-image src="#demo" position="0.5 1.6 -2"></a-image>
+      <a-entity environment="preset: osiris; dressingAmount: 50"></a-entity>
+    </a-scene>
+  </body>
+</html>
