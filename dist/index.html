@@ -14,6 +14,9 @@
           numRipples: 5,
           maxRippleOffset: 0.01,
           rippleSpeed: 0.1,
+
+          twistRadius: 0.3,
+          maxTwist: 1.0,
         };
 
         function setParams() {
@@ -25,6 +28,9 @@
           numRipples: { min: 0, max: 20, step: 0.1 },
           maxRippleOffset: { min: 0, max: 0.05, step: 0.001 },
           rippleSpeed: { min: 0, max: 1, step: 0.001 },
+
+          twistRadius: { min: 0, max: 0.5, step: 0.001 },
+          maxTwist: { min: 0, max: 10, step: 0.001 },
         };
 
         for (let name in ranges) {

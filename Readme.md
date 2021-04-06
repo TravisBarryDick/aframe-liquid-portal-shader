@@ -62,6 +62,8 @@ The following parameters can be used to customize the effect. You can play with 
 | `numRipples`      | `float` | The number of ripples along a line of length `0.5` in UV space. When `rippleCenter = {x: 0.5, y: 0.5}` this is the total number of ripples between the center and left or right edge of the image. |
 | `maxRippleOffset` | `float` | The maximum displacement caused by the ripples in UV space.                                                                                                                                        |
 | `rippleSpeed`     | `float` | The distance moved by each ripple in UV space per second.                                                                                                                                          |
+| `twistRadius`     | `float` | The twist effect only affects a circle of radius `twistRadius` in UV-space centered around `rippleCenter`                                                                                          |
+| `maxTwist`        | `float` | The number of times the texture should be rotated completely in the twist effect.                                                                                                                  |
 
 ---
 

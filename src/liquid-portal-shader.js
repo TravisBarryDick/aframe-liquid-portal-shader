@@ -16,6 +16,9 @@ AFRAME.registerShader("liquid-portal", {
     numRipples: { type: "float", is: "uniform", default: 5 },
     maxRippleOffset: { type: "float", is: "uniform", default: 0.01 },
     rippleSpeed: { type: "float", is: "uniform", default: 0.1 },
+
+    twistRadius: { type: "float", is: "uniform", default: 0.25 },
+    maxTwist: { type: "float", is: "uniform", default: 1.0 },
   },
 
   vertexShader: glsl`
@@ -36,6 +39,9 @@ AFRAME.registerShader("liquid-portal", {
     uniform float numRipples;
     uniform float maxRippleOffset;
     uniform float rippleSpeed;
+
+    uniform float twistRadius;
+    uniform float maxTwist;
 
     in vec2 v_uv;
 
@@ -58,6 +64,10 @@ AFRAME.registerShader("liquid-portal", {
       vec2 pc = toPolar(rippleCenter, v_uv);
 
       float r_offset = maxRippleOffset * sin((pc[1] - timeMsec / 1000.0 * rippleSpeed) * 4.0 * PI * numRipples);
+
+      float a_offset = pc[1] < twistRadius ? mix(0.0, maxTwist * 2.0 * PI, twistRadius - pc[1]) : 0.0;
+
+      pc[0] += a_offset;
       pc[1] += r_offset;
 
       vec2 uv = fromPolar(rippleCenter, pc);
