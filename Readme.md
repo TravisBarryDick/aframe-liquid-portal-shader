@@ -64,6 +64,18 @@ The following parameters can be used to customize the effect. You can play with 
 | `rippleSpeed`     | `float` | The distance moved by each ripple in UV space per second.                                                                                                                                          |
 | `twistRadius`     | `float` | The twist effect only affects a circle of radius `twistRadius` in UV-space centered around `rippleCenter`                                                                                          |
 | `maxTwist`        | `float` | The number of times the texture should be rotated completely in the twist effect.                                                                                                                  |
+| `strength`        | `float` | A value in `[0,1]` that multiplies `maxRippleOffset`, `twistRadius`, and `maxTwist` to make it easy to smoothly activate and deactivate the effect.                                                |
+
+## Mouse Interaction Component
+
+The `liquid-portal-mouse` component moves the `rippleCenter` of the effect to follow the mouse and animates the `strength` attribute so that the effect fades when there is no mouse movement. You can try the mouse interaction component by checking the "mouse" box in the <a href="https://travisbarrydick.github.io/aframe-liquid-portal-shader/dist/index.html">interactive demo</a>.
+
+The `liquid-portal-mouse` component has two configurable proeprties:
+
+| Parameter   | Type    | Description                                                                                               |
+| ----------- | ------- | --------------------------------------------------------------------------------------------------------- |
+| `moveFrac`  | `float` | The fraction of the way to the mouse that the rippleCenter moves on each frame.                           |
+| `decayTime` | `float` | The number of seconds it takes for the effect to completely disappear after the mouse has stopped moving. |
 
 ---
 
