@@ -1,11 +1,11 @@
 {
   "name": "aframe-liquid-portal-shader",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "An A-Frame shader for creating a liquid portal effect",
   "main": "dist/aframe-liquid-portal-shader.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TravisBarryDick/aframe-portal-shader.git"
+    "url": "https://github.com/TravisBarryDick/aframe-liquid-portal-shader.git"
   },
   "scripts": {
     "build": "webpack",
