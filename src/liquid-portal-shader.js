@@ -24,6 +24,8 @@ AFRAME.registerShader("liquid-portal", {
   },
 
   vertexShader: glsl`
+    precision highp float;
+
     out vec2 v_uv;
     void main() {
       v_uv = uv;
@@ -32,6 +34,8 @@ AFRAME.registerShader("liquid-portal", {
   `,
 
   fragmentShader: glsl`
+    precision highp float;
+
     float PI = 3.14159;
 
     uniform sampler2D src;
