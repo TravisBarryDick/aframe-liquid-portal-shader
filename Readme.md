@@ -76,11 +76,3 @@ The `liquid-portal-mouse` component has two configurable proeprties:
 | ----------- | ------- | --------------------------------------------------------------------------------------------------------- |
 | `moveFrac`  | `float` | The fraction of the way to the mouse that the rippleCenter moves on each frame.                           |
 | `decayTime` | `float` | The number of seconds it takes for the effect to completely disappear after the mouse has stopped moving. |
-
----
-
-This component was developed in partnership with <a href="https://planetvoodoo.org/">Planet Voodoo&reg;</a> (Voodoo LLC) as part of their 'WebXR Wizardry' initiative.
-
-<p align="center">
-  <a href="https://planetvoodoo.org/"><img src="planet-voodoo-logo.png" width="150px" /></a>
-</p>
